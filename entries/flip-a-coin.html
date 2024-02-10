@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flip a coin</title>
+    <meta
+      name="description"
+      content="A random generator that flips a coin for you. Heads or tails — what's your pick?"
+    />
+    <meta name="robots" content="index, follow, nocache, max-snippet:-1" />
+    <style>
+      *,
+      :after,
+      :before {
+        box-sizing: border-box;
+      }
+
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+        scroll-behavior: smooth;
+        scroll-padding: 0;
+        font-size: 16px;
+        accent-color: #000;
+      }
+
+      body {
+        margin: 0;
+        line-height: inherit;
+      }
+
+      button {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+        text-transform: none;
+        appearance: button;
+        -webkit-appearance: button;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Flip the coin</h1>
+      <p>
+        A random generator that flips a coin for you. Heads or tails — what's
+        your pick?
+      </p>
+
+      <div id="coin"></div>
+
+      <button id="button" type="submit" title="Flip the coin">Flip</button>
+
+      <p>
+        Check out my other coin flipper (<a
+          href="https://slumpgenerator.nu/singla-slant/"
+          title="Singla slant"
+          lang="sv"
+          >singla slant</a
+        >).
+      </p>
+    </main>
+
+    <script>
+      (() => {
+        const button = document.getElementById("button");
+        const random = () => Math.random() > 0.5;
+        const onFlipped = () => {
+          button.disabled = false;
+        };
+        const onSubmit = () => {
+          button.disabled = true;
+
+          setTimeout(() => {
+            console.log(random());
+            onFlipped();
+          }, 1000);
+        };
+
+        button.addEventListener("click", onSubmit);
+      })();
+    </script>
+  </body>
+</html>
